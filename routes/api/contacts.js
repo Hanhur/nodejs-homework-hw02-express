@@ -1,13 +1,13 @@
-const express = require('express');
-const contactsController = require('../../controllers/contacts-controller');
-const schemas = require('../../schemas/contacts-schemas');
-const { validateBody } = require('../../decorators');
+import express from 'express';
+import { listContacts, getContactById, addContact, removeContact, updateContactById } from '../../controllers/controllers.js';
+import { validateData } from '../../helpers/validateData.js';
+
 const router = express.Router();
 
-router.get('/', contactsController.getAllContacts);
-router.get('/:id', contactsController.getContactById);
-router.post('/', validateBody(schemas.contactAddSchema), contactsController.addContact);
-router.delete('/:id', contactsController.removeContact);
-router.put('/:id', validateBody(schemas.contactAddSchema), contactsController.updateContact);
+router.get('/', listContacts);
+router.get('/:contactId', getContactById);
+router.post('/', validateData, addContact);
+router.delete('/:contactId', removeContact);
+router.put('/:contactId', validateData, updateContactById);
 
-module.exports = router;
+export default router;
