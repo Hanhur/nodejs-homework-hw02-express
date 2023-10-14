@@ -1,5 +1,1 @@
-const ctrlWrapper = require("./ctrlWrapper");
-
-module.exports = {
-    ctrlWrapper,
-};
+export { default as HttpError } from "./HttpError.js";
