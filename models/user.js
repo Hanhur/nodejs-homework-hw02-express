@@ -1,8 +1,7 @@
 const Joi = require("joi");
 const { Schema, model } = require("mongoose");
 const { handleSaveError, runValidatorsAtUpdate } = require("./hooks");
-
-const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegexp = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
 
 const userSchema = new Schema(
     {
@@ -32,9 +31,7 @@ const userSchema = new Schema(
 );
 
 userSchema.post("save", handleSaveError);
-
 userSchema.pre("findOneAndUpdate", runValidatorsAtUpdate);
-
 userSchema.post("findOneAndUpdate", handleSaveError);
 
 const registerSchema = Joi.object({

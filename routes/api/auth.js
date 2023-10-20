@@ -1,5 +1,4 @@
 const express = require("express");
-
 const authCtrl = require("../../controllers/auth");
 
 const {
@@ -9,7 +8,6 @@ const {
 } = require("../../middlewares/index");
 
 const { schemas } = require("../../models/user");
-
 const authRouter = express.Router();
 
 authRouter.post(
@@ -27,7 +25,6 @@ authRouter.post(
 );
 
 authRouter.get("/current", authenticate, authCtrl.getCurrent);
-
 authRouter.post("/logout", authenticate, authCtrl.logout);
 
 module.exports = authRouter;
