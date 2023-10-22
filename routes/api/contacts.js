@@ -1,14 +1,12 @@
 const express = require("express");
 const ctrl = require("../../controllers/contacts");
-
 const {
+    authenticate,
     isEmptyBody,
     isEmptyFavoriteBody,
     validateBody,
     isValidId,
-    authenticate,
 } = require("../../middlewares/index");
-
 const { schemas } = require("../../models/сontact");
 const router = express.Router();
 
@@ -16,7 +14,6 @@ router.use(authenticate);
 router.get("/", ctrl.getAll);
 router.get("/:id", isValidId, ctrl.getById);
 router.post("/", isEmptyBody, validateBody(schemas.addSchema), ctrl.add);
-
 router.put(
     "/:id",
     isValidId,

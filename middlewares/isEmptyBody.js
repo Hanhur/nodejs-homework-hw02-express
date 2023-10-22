@@ -7,6 +7,6 @@ const isEmptyBody = (req, res, next) => {
     }
 
     next();
-};
+}
 
 module.exports = isEmptyBody;

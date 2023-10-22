@@ -8,9 +8,9 @@ const validateBody = (schema) => {
             return next(HttpError(400, error.message));
         }
         next();
-    };
+    }
 
     return func;
-};
+}
 
 module.exports = validateBody;
