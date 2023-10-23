@@ -71,4 +71,4 @@ module.exports = {
     updateById: ctrlWrapper(updateById),
     updateStatusContact: ctrlWrapper(updateStatusContact),
     removeContact: ctrlWrapper(removeContact),
-};
+}

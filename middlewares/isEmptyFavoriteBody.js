@@ -6,6 +6,6 @@ const isEmptyFavoriteBody = (req, res, next) => {
         return next(HttpError(400, "missing field favorite"));
     }
     next();
-};
+}
 
 module.exports = isEmptyFavoriteBody;
