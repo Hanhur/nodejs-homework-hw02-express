@@ -14,13 +14,14 @@ router.use(authenticate);
 router.get("/", ctrl.getAll);
 router.get("/:id", isValidId, ctrl.getById);
 router.post("/", isEmptyBody, validateBody(schemas.addSchema), ctrl.add);
+
 router.put(
     "/:id",
     isValidId,
     isEmptyBody,
     validateBody(schemas.addSchema),
     ctrl.updateById
-);
+)
 
 router.patch(
     "/:id/favorite",
@@ -28,7 +29,7 @@ router.patch(
     isEmptyFavoriteBody,
     validateBody(schemas.contactUpdateFavoriteSchema),
     ctrl.updateStatusContact
-);
+)
 
 router.delete("/:id", isValidId, ctrl.removeContact);
 
